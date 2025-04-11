@@ -1,17 +1,25 @@
 import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
+import productRouter from "./routes/products.js";
 
+// Create an express app
 const app = express();
 
+// Make a database connection
 await mongoose.connect(process.env.MONGO_URI)
 .then(()=> console.log('Database connected'))
 .catch(err => console.log('error'))
 
-app.get('/users',(req,res)=> {
-    res.send("Hello world");
-})
+// Use global middlewares
+app.use(express.json());
 
-app.listen(5500, ()=> {
-    console.log(`Server is listening on PORT 3000`);
+// Use routes
+app.use("api", productRouter);
+
+// Listen for incoming requests
+const PORT = process.env.PORT || 3000;
+
+app.listen(PORT, ()=> {
+    console.log(`Server is listening on PORT ${PORT}`);
 })

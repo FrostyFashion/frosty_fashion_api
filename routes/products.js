@@ -1,5 +1,6 @@
 import { Router } from "express";
 import { addProduct, deleteProduct, getProduct, getProducts, updateProduct } from "../controllers/products";
+import { productImageUpload } from "../middlewares/upload.js";
 
 const productRouter = Router();
 
