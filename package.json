@@ -5,7 +5,7 @@
   "type": "module",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "dev": "nodemon ."
+    "dev": "nodemon --env-file=.env ."
   },
   "repository": {
     "type": "git",
@@ -20,7 +20,16 @@
   "homepage": "https://github.com/FrostyFashion/frosty_fashion_api#readme",
   "description": "",
   "dependencies": {
-    "express": "^5.1.0"
+    "bcrypt": "^5.1.1",
+    "dotenv": "^16.5.0",
+    "express": "^5.1.0",
+    "express-jwt": "^8.5.1",
+    "joi": "^17.13.3",
+    "jsonwebtoken": "^9.0.2",
+    "mongoose": "^8.13.2",
+    "multer": "^1.4.5-lts.2",
+    "nodemailer": "^6.10.0",
+    "normalize-mongoose": "^1.0.0"
   },
   "devDependencies": {
     "nodemon": "^3.1.9"
