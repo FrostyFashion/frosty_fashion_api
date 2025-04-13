@@ -37,7 +37,7 @@ export const getProduct = async (req, res, next) => {
       return res.status(200).json(product);
     }
 
-    return res.status(400).json("Product not found.");
+    return res.status(404).json("Product not found.");
   } catch (error) {
     next(error);
   }
@@ -55,7 +55,7 @@ export const updateProduct = async (req, res, next) => {
       return res.status(200).json("Product successfully updated.");
     }
 
-    return res.status(400).json("Product not found.");
+    return res.status(404).json("Product not found.");
   } catch (error) {
     next(error);
   }
@@ -70,5 +70,5 @@ export const deleteProduct = async (req, res, next) => {
     return res.status(200).json("Product successfully deleted.");
   }
 
-  return res.status(403).json("Product not found");
+  return res.status(404).json("Product not found");
 };
