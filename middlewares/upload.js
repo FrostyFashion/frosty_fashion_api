@@ -9,13 +9,11 @@ cloudinary.config({
 });
 
 
-export const productImageUpload = multer({
+export const productPicturesUpload = multer({
   storage: new CloudinaryStorage({
     cloudinary,
     params: {
       folder: "frosty_fashion/product-pictures",
-      // format: async (req, file) => "png", // supports promises as well
-      // public_id: (req, file) => file.originalname,
     },
   }),
 });

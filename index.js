@@ -15,7 +15,7 @@ await mongoose.connect(process.env.MONGO_URI)
 app.use(express.json());
 
 // Use routes
-app.use("api", productRouter);
+app.use("/api", productRouter);
 
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000;
