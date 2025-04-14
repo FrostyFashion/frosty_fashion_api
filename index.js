@@ -2,6 +2,7 @@ import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
 import productRouter from "./routes/products.js";
+import cors from "cors";
 
 // Create an express app
 const app = express();
