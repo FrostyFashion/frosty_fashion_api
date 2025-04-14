@@ -1,25 +1,16 @@
-import { Schema, model } from "mongoose";
+import { Schema, model, Types } from "mongoose";
 import normalize from "normalize-mongoose";
 
-const userSchema = new Schema(
-  {
-    username: {
-      type: String,
-      required: true,
-      unique: [true, "Product name must be unique"],
-    },
-    email: { type: String, required: true, unique: true },
-    password: { type: String, required: true },
-    role: {
-      type: String,
-      default: "customer",
-      enum: ["customer", "vendor", "admin"],
-    },
+const userSchema = new Schema({
+  userName: { type: String},
+  email: { type: String, unique: true },
+  password: { type: String },
+  role: {
+    type: String,
+    default: "customer",
+    enum: ["vendor", "customer", "admin", "superadmin"],
   },
-  {
-    timestamps: true,
-  }
-);
+});
 
 userSchema.plugin(normalize);
 
