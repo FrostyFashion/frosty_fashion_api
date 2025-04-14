@@ -17,6 +17,9 @@ app.use(express.json());
 // Use routes
 app.use("/api", productRouter);
 
+// Enable cors for all routes
+app.use(cors());
+
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000;
 
