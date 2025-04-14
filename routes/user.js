@@ -5,8 +5,8 @@ import { loginUser, registerUser } from "../controllers/user.js";
 const userRouter = Router();
 
 // Define route
-userRouter.post("/users/register", registerUser);
+userRouter.post("/auth/register", registerUser);
 
-userRouter.post("/users/login", loginUser);
+userRouter.post("/auth/login", loginUser);
 
 export default userRouter;
