@@ -1,4 +1,7 @@
-import { loginUserValidator, registerUserValidator } from "../validators/user.js";
+import {
+  loginUserValidator,
+  registerUserValidator,
+} from "../validators/user.js";
 import bcrypt from "bcrypt";
 import jwt from "jsonwebtoken";
 import { UserModel } from "../models/user.js";
@@ -44,8 +47,8 @@ export const loginUser = async (req, res, next) => {
     }
     // Find matching user record in database
     const user = await UserModel.findOne({
-    //   $or: [{ username: value.userName }, { email: value.email }],
-      email: value.email
+      //   $or: [{ username: value.userName }, { email: value.email }],
+      email: value.email,
     });
 
     if (!user) {
@@ -66,12 +69,12 @@ export const loginUser = async (req, res, next) => {
     });
 
     res.status(200).json({
-        accessToken,
-        user : {
-            email: user.email,
-            role: user.role
-        }
-    })
+      accessToken,
+      user: {
+        email: user.email,
+        role: user.role,
+      },
+    });
   } catch (error) {
     next(error);
   }

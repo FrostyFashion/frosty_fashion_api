@@ -7,6 +7,7 @@ const reviewSchema = new Schema(
     comment: { type: String },
     userId: { type: Types.ObjectId, required: true, ref: "User" },
     productId: { type: Types.ObjectId, required: true, ref: "Product" },
+    username: {type: String}
   },
   {
     timestamps: true,

@@ -16,7 +16,10 @@ export const addProduct = async (req, res, next) => {
   }
 
   // Create a product and save in database.
-  const product = await ProductModel.create(value);
+  const product = await ProductModel.create({
+    ...value,
+    userId: req.auth.id
+  });
 
   res.status(201).json(product);
 };
