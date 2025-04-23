@@ -48,7 +48,6 @@ export const getReviews = async (req, res, next) => {
   try {
     const id = req.params.productId;
 
-    // const reviews = await ReviewModel.findById(productId);
     const reviews = await ReviewModel.find({ productId: id });
 
     if (reviews) {

@@ -1,10 +1,11 @@
 import express from "express";
 import mongoose from "mongoose";
 import "dotenv/config";
-import productRouter from "./routes/products.js";
+// import productRouter from "./routes/products.js";
 import cors from "cors";
-import userRouter from "./routes/user.js";
-import reviewRouter from "./routes/review.js";
+// import userRouter from "./routes/user.js";
+// import reviewRouter from "./routes/review.js";
+import routes from "./routes/index.js";
 
 // Create an express app
 const app = express();
@@ -18,9 +19,7 @@ await mongoose.connect(process.env.MONGO_URI)
 app.use(express.json());
 
 // Use routes
-app.use("/api", productRouter);
-app.use("/api", reviewRouter);
-app.use("/api",userRouter);
+app.use("/api", routes);
 
 // Enable cors for all routes
 app.use(cors());
@@ -29,6 +28,6 @@ app.use(cors());
 const PORT = process.env.PORT || 3000;
 
 // Server listening for request
-app.listen(PORT, ()=> {
+app.listen(PORT, () => {
     console.log(`Server is listening on PORT ${PORT}`);
 })
