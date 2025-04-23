@@ -57,12 +57,18 @@ export const addCart = async(req,res) => {
         }
 
         // Populate product details for response
-        const populatedCart = await CartModel.findById(cart.id).populate('items.productId');
+        const populateCart = await CartModel.findById(cart.id).populate('items.productId');
 
         // res.json(populatedCart);
         // console.log(populatedCart);
 
-        res.json('Cart added successfully');
+        const formattedItems = populateCart.items.map((item) => ({
+          //   productId: item.productId._id,
+          product: item.productId, // this is now the populated product object
+          quantity: item.quantity,
+        }));
+
+        res.json(formattedItems);
         
     }
     catch(error)
