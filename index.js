@@ -26,11 +26,11 @@ await mongoose.connect(process.env.MONGO_URI)
 app.use(express.json());
 
 // Use routes
-// app.use("/api", routes);
-app.use("/api",productRouter);
-app.use("/api",userRouter);
-app.use("/api",reviewRouter);
-app.use("/api",cartRoute);
+app.use("/api", routes);
+// app.use("/api",productRouter);
+// app.use("/api",userRouter);
+// app.use("/api",reviewRouter);
+// app.use("/api",cartRoute);
 
 
 // Listen for incoming requests
