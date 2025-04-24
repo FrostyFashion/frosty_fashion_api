@@ -10,6 +10,9 @@ import routes from "./routes/index.js";
 // Create an express app
 const app = express();
 
+// Enable cors for all routes
+app.use(cors());
+
 // Make a database connection
 await mongoose.connect(process.env.MONGO_URI)
 .then(() => console.log('Database connected'))
@@ -21,8 +24,7 @@ app.use(express.json());
 // Use routes
 app.use("/api", routes);
 
-// Enable cors for all routes
-app.use(cors());
+
 
 // Listen for incoming requests
 const PORT = process.env.PORT || 3000;
